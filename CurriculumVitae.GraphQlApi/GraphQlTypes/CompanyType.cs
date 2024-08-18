@@ -10,6 +10,9 @@ public class CompanyType : ObjectGraphType<Company>
         Name = nameof(Company);
         Field(c => c.Id);
         Field(c => c.Name);
-        // Field(c => c.ContactInformation);
+        Field<ContactInformationType>(
+            "contactInformation",
+            resolve: context => context.Source.ContactInformation
+        );
     }    
 }
