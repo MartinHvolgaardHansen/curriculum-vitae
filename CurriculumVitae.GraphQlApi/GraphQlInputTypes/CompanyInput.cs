@@ -8,13 +8,13 @@ public class CompanyInput : InputObjectGraphType<Company>
     public CompanyInput()
     {
         Name = nameof(CompanyInput);
-        Field(c => c.Name);
-        Field(c => c.ContactInformation.Email);
+        Field(c => c.Name).Description("The name of the company");
+        Field(c => c.ContactInformation.Email).Description("The email used to reach a point of contact in the company");
         Field<ListGraphType<PhoneInput>>("phones");
-        Field(c => c.ContactInformation.AddressLineOne);
-        Field(c => c.ContactInformation.AddressLineTwo, nullable: true);
-        Field(c => c.ContactInformation.City);
-        Field(c => c.ContactInformation.Region, nullable: true);
-        Field(c => c.ContactInformation.Country);
+        Field(c => c.ContactInformation.AddressLineOne).Description("Company address line 1");
+        Field(c => c.ContactInformation.AddressLineTwo, nullable: true).Description("Company address line 2 (optional)");
+        Field(c => c.ContactInformation.City).Description("The name of the city in which the company is based");
+        Field(c => c.ContactInformation.Region, nullable: true).Description("The name of the region in which the company is based");
+        Field(c => c.ContactInformation.Country).Description("The name of the country in which the company is based");
     }
 }

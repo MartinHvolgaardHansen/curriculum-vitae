@@ -16,11 +16,6 @@ public class Mutation : ObjectGraphType
     {
         _companyService = companyService;
 
-        Setup();
-    }
-
-    private void Setup()
-    {
         Name = nameof(Mutation);
 
         Field<CompanyType>(

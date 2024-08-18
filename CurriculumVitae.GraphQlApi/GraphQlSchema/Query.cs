@@ -11,11 +11,7 @@ public class Query : ObjectGraphType<object>
     public Query(ICompanyService companyService)
     {
         _companyService = companyService;
-        Setup();
-    }
 
-    private void Setup()
-    {
         Name = nameof(Query);
         FieldAsync<ListGraphType<CompanyType>>("companies", resolve: async context => await _companyService.Get());
     }
