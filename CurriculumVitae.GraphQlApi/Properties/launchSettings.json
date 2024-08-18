@@ -1,0 +1,13 @@
+﻿{
+    "profiles": {
+      "CurriculumVitae.GraphQlApi": {
+        "commandName": "Project",
+        "launchBrowser": true,
+        "launchUrl": "graphql",
+        "environmentVariables": {
+          "ASPNETCORE_ENVIRONMENT": "Development"
+        },
+        "applicationUrl": "http://localhost:3000"
+      }
+    }
+  }
