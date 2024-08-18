@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CurriculumVitae.Shared\CurriculumVitae.Shared.csproj" />
+    <ProjectReference Include="..\CurriculumVitae.DataAccess\CurriculumVitae.DataAccess.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

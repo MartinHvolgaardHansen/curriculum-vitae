@@ -11,6 +11,8 @@ using Microsoft.Extensions.Logging;
 using CurriculumVitae.GraphQlApi.GraphQlSchema;
 using CurriculumVitae.Shared.DtoModels;
 using CurriculumVitae.Domain.Services;
+using CurriculumVitae.DataAccess;
+using CurriculumVitae.DataAccess.Repositories;
 
 namespace CurriculumVitae.GraphQlApi;
 
@@ -18,17 +20,22 @@ public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddDbContext<ApplicationDbContext>();
+
+        services.AddLogging(builder => builder.AddConsole());
+        services.AddHttpContextAccessor();
+        services.AddScoped<Query>();
+        services.AddScoped<Mutation>();
+        services.AddScoped<ICompanyService, CompanyService>();
+        services.AddScoped<ICompanyRepository, CompanyRepository>();
+            services.AddScoped<ISchema>(provider => new CurriculumVitaeSchema(provider));
+
         services.AddGraphQL(b => b
             .AddHttpMiddleware<ISchema>()
             .AddSystemTextJson()
             .AddErrorInfoProvider(opt => opt.ExposeExceptionStackTrace = true)
-            .AddSchema<CurriculumVitaeSchema>()
             .AddGraphTypes(typeof(CurriculumVitaeSchema).Assembly)
             );
-
-        services.AddLogging(builder => builder.AddConsole());
-        services.AddHttpContextAccessor();
-        services.AddSingleton<ICompanyService, CompanyService>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -37,6 +44,5 @@ public class Startup
             app.UseDeveloperExceptionPage();
 
         app.UseGraphQL<ISchema>();
-        // app.UseGraphQLPlayground();
     }
 }

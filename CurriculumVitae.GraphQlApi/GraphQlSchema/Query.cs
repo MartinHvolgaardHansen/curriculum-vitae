@@ -1,22 +1,22 @@
 using CurriculumVitae.Domain.Services;
-using CurriculumVitae.GraphQlTypes;
+using CurriculumVitae.GraphQlApi.GraphQlQueryTypes;
 using GraphQL.Types;
 
 namespace CurriculumVitae.GraphQlApi.GraphQlSchema;
 
 public class Query : ObjectGraphType<object>
 {
-    private readonly ICompanyService _service;
+    private readonly ICompanyService _companyService;
 
-    public Query(ICompanyService service)
+    public Query(ICompanyService companyService)
     {
-        _service = service;
+        _companyService = companyService;
         Setup();
     }
 
     private void Setup()
     {
         Name = nameof(Query);
-        FieldAsync<ListGraphType<CompanyType>>("companies", resolve: async context => await _service.Get());
+        FieldAsync<ListGraphType<CompanyType>>("companies", resolve: async context => await _companyService.Get());
     }
 }

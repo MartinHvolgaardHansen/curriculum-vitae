@@ -11,7 +11,7 @@ public class CurriculumVitaeSchema : Schema
         : base(provider)
     {
         Query = (Query)provider.GetService(typeof(Query)) ?? throw new InvalidOperationException();
-        // Mutation = (StarWarsMutation)provider.GetService(typeof(StarWarsMutation)) ?? throw new InvalidOperationException();
+        Mutation = (Mutation)provider.GetService(typeof(Mutation)) ?? throw new InvalidOperationException();
 
         FieldMiddleware.Use(new InstrumentFieldsMiddleware());
     }

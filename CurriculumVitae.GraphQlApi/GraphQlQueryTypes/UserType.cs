@@ -1,7 +1,7 @@
 using CurriculumVitae.Shared.DtoModels;
 using GraphQL.Types;
 
-namespace CurriculumVitae.GraphQlTypes;
+namespace CurriculumVitae.GraphQlApi.GraphQlQueryTypes;
 
 public class UserType : ObjectGraphType<User>
 {
