@@ -8,6 +8,7 @@
         https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet7/nuget/v3/index.json;
         $(RestoreAdditionalProjectSources)
       </RestoreAdditionalProjectSources>
+      <Nullable>disable</Nullable>
     </PropertyGroup>
   
     <ItemGroup>
@@ -21,6 +22,11 @@
     <ItemGroup>
       <RdXmlFile Include="Microsoft.AspNetCore.rd.xml" />
       <RdXmlFile Include="GraphQL.rd.xml" />
+    </ItemGroup>
+  
+    <ItemGroup>
+        <ProjectReference Include="..\CurriculumVitae.Domain\CurriculumVitae.Domain.csproj" />
+        <ProjectReference Include="..\CurriculumVitae.Shared\CurriculumVitae.Shared.csproj" />
     </ItemGroup>
   
   </Project>

@@ -1,6 +1,6 @@
-namespace CurriculumVitae.Shared.DtoModels;
+namespace CurriculumVitae.Domain.Services;
 
-public class UserProfileService
+public class UserProfileService : IUserProfileService
 {
     
 }

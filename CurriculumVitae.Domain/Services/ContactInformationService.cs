@@ -1,5 +1,5 @@
-namespace CurriculumVitae.Shared.DtoModels;
+namespace CurriculumVitae.Domain.Services;
 
-public class ContactInformationService
+public class ContactInformationService : IContactInformationService
 {
 }

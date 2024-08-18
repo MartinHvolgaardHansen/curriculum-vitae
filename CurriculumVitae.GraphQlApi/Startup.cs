@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using CurriculumVitae.GraphQlApi.GraphQlSchema;
+using CurriculumVitae.Shared.DtoModels;
+using CurriculumVitae.Domain.Services;
 
 namespace CurriculumVitae.GraphQlApi;
 
@@ -20,13 +22,13 @@ public class Startup
             .AddHttpMiddleware<ISchema>()
             .AddSystemTextJson()
             .AddErrorInfoProvider(opt => opt.ExposeExceptionStackTrace = true)
-            .AddSchema<StarWarsSchema>()
-            .AddGraphTypes(typeof(StarWarsSchema).Assembly)
+            .AddSchema<CurriculumVitaeSchema>()
+            .AddGraphTypes(typeof(CurriculumVitaeSchema).Assembly)
             );
 
         services.AddLogging(builder => builder.AddConsole());
         services.AddHttpContextAccessor();
-        services.AddSingleton<StarWarsData>();
+        services.AddSingleton<ICompanyService, CompanyService>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

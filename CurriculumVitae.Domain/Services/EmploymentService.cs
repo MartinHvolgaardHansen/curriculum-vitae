@@ -1,6 +1,6 @@
-namespace CurriculumVitae.Shared.DtoModels;
+namespace CurriculumVitae.Domain.Services;
 
-public class EmploymentService
+public class EmploymentService : IEmploymentService
 {
     
 }

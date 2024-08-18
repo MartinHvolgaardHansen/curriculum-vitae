@@ -1,5 +1,5 @@
-namespace CurriculumVitae.Shared.DtoModels;
+namespace CurriculumVitae.Domain.Services;
 
-public class EducationService
+public class EducationService : IEducationService
 {
 }
