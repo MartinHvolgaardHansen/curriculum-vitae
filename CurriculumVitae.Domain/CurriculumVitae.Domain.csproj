@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\CurriculumVitae.Shared\CurriculumVitae.Shared.csproj" />
     <ProjectReference Include="..\CurriculumVitae.DataAccess\CurriculumVitae.DataAccess.csproj" />
+    <ProjectReference Include="..\CurriculumVitae.Shared\CurriculumVitae.Shared.csproj" />
+    <ProjectReference Include="..\CurriculumVitae.Validation\CurriculumVitae.Validation.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
